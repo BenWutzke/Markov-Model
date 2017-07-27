@@ -71,7 +71,8 @@ class Markov(object):
          body = self.node_cnx[seq[i]]
          seq_prob += [f[1] for f in body if f[0] == seq[i+1]]
          
-      return (seq,reduce(mul,seq_prob,1))
+
+       return (seq,reduce(mul,seq_prob,1))
    
    def get_all_sequence_prob(self):
       """
@@ -106,6 +107,8 @@ class Markov(object):
       """
       Initializes a markov model with random node connections and
       node emissions.
+      'cnx' is an upper limit on the number of connections per node which is chosen randomly from
+      [0,cnx]
       """
       k = min(cnx,len(self.nodes))
       if not self.node_emissions:
