@@ -76,8 +76,9 @@ class Markov(object):
    def get_all_sequence_prob(self):
       """
       Returns all sequences in the sequences attribute, zipped with their probabilities.
-      Ordered from lowest prop to highest prob.
+      Ordered from lowest prob to highest prob.
       """
+
       temp = []
       for s in self.sequences:
          temp.append(self.get_sequenceprob(s))
@@ -124,6 +125,7 @@ class Markov(object):
       
 def main():
    a=Markov()
+   #Some Testing
    a.nodes = ['a','b','c','d','e','f','g']
    a.random_model_init(3)
    a.show()
