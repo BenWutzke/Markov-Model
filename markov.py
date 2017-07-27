@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Jul 26 17:19:03 2017
 
-@author: voodo
-"""
 import random
 import numpy as np
 import itertools
@@ -70,6 +66,8 @@ class Markov(object):
       """
       seq_prob = []
       for i in range(len(seq)-1):
+         if not self.node_cnx[seq[i]]:
+            return 0
          body = self.node_cnx[seq[i]]
          seq_prob += [f[1] for f in body if f[0] == seq[i+1]]
          
